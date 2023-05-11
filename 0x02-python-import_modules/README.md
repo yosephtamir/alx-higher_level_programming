@@ -1,7 +1,7 @@
 # Python - import & modules
 ## Yoseph Tamirat
 
-![cat](images/cat.jpg)
+![cat](cat.jpg)
 
 0. Import a simple function from a simple file
 1. My first toolbox!
