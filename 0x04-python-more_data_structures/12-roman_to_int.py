@@ -3,9 +3,8 @@ def roman_to_int(roman_string):
     sum = 0
     dhum = 0
     chang = (('I', 1), ('V', 5), ('X', 10),
-                ('L', 50), ('C', 100), ('D', 500),
-                ('M', 1000))
-
+             ('L', 50), ('C', 100), ('D', 500),
+             ('M', 1000))
     if type(roman_string) is not str:
         return 0
     if roman_string is None:
