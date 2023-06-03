@@ -1,0 +1,63 @@
+"""
+Importing the module so the test can be made
+"""
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+"""
+Checking if the module works with proper syntax
+"""
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+"""
+Checking if the returned value shares the same memory location wiz the original
+"""
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+"""
+Negative Divission check
+"""
+>>> print(matrix_divided(matrix, -3))
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+"""
+Checking for non list matrix
+"""
+>>> print(matrix_divided(3, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"""
+setting the matrix to non list inner elements
+"""
+>>> matrix = ['a', 'b']
+
+"""
+checking the matrix with non list inner elements
+"""
+>>> print(matrix_divided(matrix, 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"""
+checking the module with error type div
+"""
+>>> print(matrix_divided([1, 2, 3], 'a'))
+Traceback (most recent call last):
+TypeError: div must be a number
+
+"""
+checking the list of lists with type error element
+"""
+>>> print(matrix_divided([1, 2, 3, 'a'], 2))
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+"""
+checking for zero division error by setting div to 0
+"""
+>>> print(matrix_divided([1, 3, 3], 0))
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
