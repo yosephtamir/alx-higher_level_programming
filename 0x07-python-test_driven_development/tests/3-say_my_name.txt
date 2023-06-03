@@ -1,0 +1,51 @@
+"""
+Importing the module
+"""
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+"""
+Checking if it properly work with correct syntax
+"""
+>>> say_my_name('Yoseph', 'Tamirat')
+My name is Yoseph Tamirat
+
+"""
+Checking for single argument pass
+"""
+>>> say_my_name('Yoseph')
+My name is Yoseph 
+
+"""
+Checking the first name for non string value
+"""
+>>> say_my_name(2, 'Yoseph')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+"""
+checking the last name with non string value
+"""
+>>> say_my_name('Yoseph', 2)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+"""
+Checking if it cast to integer
+"""
+>>> say_my_name('2', '4')
+My name is 2 4
+
+"""
+Checking if it can print a list
+"""
+>>> say_my_name([1, 2], 'a')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+"""
+Checking if it can print a dict
+"""
+>>> say_my_name('a', {'ib': 3})
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
