@@ -1,0 +1,60 @@
+"""
+Importing the module
+"""
+>>> print_square = __import__('4-print_square').print_square
+
+"""
+Printing regular check
+"""
+>>> print_square(4)
+####
+####
+####
+####
+
+"""
+Printing regular
+"""
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+"""
+Checking for 0 value
+"""
+>>> print_square(0)
+
+"""
+Printing 1 #
+"""
+>>> print_square(1)
+#
+
+"""
+This is used to check for non positive integers
+"""
+>>> print_square(-1)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+"""
+Checking with non integer type
+"""
+>>> print_square('aa')
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+"""
+Checking for float in between 1 and 0
+"""
+>>> print_square(0.5)
+Traceback (most recent call last):
+TypeError: size must be an integer
