@@ -1,0 +1,56 @@
+"""
+importing the module
+"""
+>>> add_integer = __import__('0-add_integer').add_integer
+
+"""
+checking with 1 argument
+"""
+>>> print(add_integer(2))
+100
+
+"""
+checking with negative argument
+"""
+>>> print(add_integer(-2))
+96
+
+"""
+checking with two arguments
+"""
+>>> print(add_integer(-2, 3))
+1
+
+"""
+checking the second argument with negetive iteger
+"""
+>>> print(add_integer(-2, -2))
+-4
+
+"""
+checking with non integer value
+"""
+>>> print(add_integer('a', 'ab'))
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+"""
+checking the second argument with non integer value
+"""
+>>> print(add_integer(3, 'b'))
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+"""
+checking with list data type
+"""
+>>> print(add_integer([1, 2, 3], 3))
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+"""
+checking the second argument with list
+"""
+>>> print(add_integer(1, [4, 5, 6]))
+Traceback (most recent call last):
+TypeError: b must be an integer
