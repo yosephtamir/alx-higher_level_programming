@@ -133,6 +133,6 @@ class Rectangle:
         """
         This is a class method used to change the rectangle to square
         """
-        Rectangle.__height = size
-        Rectangle.__width = size
+        Rectangle.height = size
+        Rectangle.width = size
         return (cls(size, size))
