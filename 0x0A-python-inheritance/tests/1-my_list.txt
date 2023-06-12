@@ -1,0 +1,41 @@
+"""
+Importing the module
+"""
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> other = MyList()
+>>> other.append(-1)
+>>> other.append(1)
+>>> other.append(0)
+>>> print(other)
+[-1, 1, 0]
+>>> other.print_sorted()
+[-1, 0, 1]
+>>> a = MyList()
+>>> a.append('a')
+>>> a.append('c')
+>>> a.append('b')
+>>> print(a)
+['a', 'c', 'b']
+>>> a.print_sorted()
+['a', 'b', 'c']
+>>> b = MyList()
+>>> b.append(5)
+>>> b.append('a')
+>>> b.append(2)
+>>> print(b)
+[5, 'a', 2]
+>>> b.print_sorted()
+Traceback (most recent call last):
+TypeError: '<' not supported between instances of 'str' and 'int'
