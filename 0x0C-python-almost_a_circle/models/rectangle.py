@@ -1,23 +1,20 @@
 #!/usr/bin/python3
 """
-This is a rectangle module
+This is used to define a Rectangle
 """
 from models.base import Base
 
 
 class Rectangle(Base):
     """
-    This is a rectangle class which inherits from the base
+    This is a Rectangle class which inherits from Base class
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        This is an instantaniation point
+        Instantation
         """
         super().__init__(id)
-        """
-        These four function is used to check whether it is allowable value
-        """
 
         self.checker(width, 'width')
         self.checker(height, 'height')
@@ -32,72 +29,133 @@ class Rectangle(Base):
     @property
     def width(self):
         """
-        Used to return the value of width
+        This is used to return the value
         """
         return self.__width
 
     @width.setter
     def width(self, value):
         """
-        Used to set the value of width
+        This is used to set the value
         """
         self.checker(value, 'width')
+
         self.__width = value
 
     @property
     def height(self):
         """
-        Used to return the value of height
+        This is used to return the value
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        Used to set the value of height
+        This is used to set the value
         """
         self.checker(value, 'height')
+
         self.__height = value
 
     @property
     def x(self):
         """
-        Used to return the value of x
+        This is used to return the value
         """
-        return self.x
+        return self.__x
 
     @x.setter
     def x(self, value):
         """
-        Used to set the value of x
+        This is used to set the value
         """
         self.checker(value, 'x')
-        self.x = value
+
+        self.__x = value
 
     @property
     def y(self):
         """
-        used to return the value of y
+        This is used to return the value
         """
-        return self.y
+        return self.__y
 
     @y.setter
     def y(self, value):
         """
-        Used to set the value of y
+        This is used to return the value
         """
         self.checker(value, 'y')
+
         self.__y = value
 
-    def checker(self, value, place):
+    def checker(self, value, fromWhere):
         """
-        This is used to check all variables
+        This method is used to check the value
         """
+
         if not isinstance(value, int):
-            raise TypeError(f"{place} must be an integer")
+            raise TypeError(f"{fromWhere} must be an integer")
+
         if value <= 0:
-            if place in ('width', 'height'):
-                raise ValueError(f"{place} must be > 0")
+            if fromWhere in ('width', 'height'):
+                raise ValueError(f"{fromWhere} must be > 0")
+
         if value < 0:
-            if place in ('x', 'y'):
-                raise ValueError(f"{place} must be >= 0")
+            if fromWhere in ('x', 'y'):
+                raise ValueError(f"{fromWhere} must be >= 0")
+
+    def area(self):
+        """
+        This is a method used to calculate an areaof a rectangle
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        This is used to print a rectangular # based on the rectangle
+        """
+        if self.__width != 0 and self.__height != 0:
+            for k in range(self.__y):
+                print("")
+            for i in range(self.__height):
+                for lim in range(self.__x):
+                    print(" ", end="")
+                for j in range(self.__width):
+                    print("#", end="")
+                print("")
+
+    def __str__(self):
+        """
+        This is str method which returns [Rectangle]
+        """
+        return '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(
+            self.id, self.x, self.y, self.width, self.height
+        )
+
+    def update(self, *args, **kwargs):
+        """
+        This method is used to update the order of args
+        """
+        arg = len(args)
+        kwarg = len(kwargs)
+        newOrder = ['id', 'width', 'height', 'x', 'y']
+
+        if arg > 5:
+            arg = 5
+
+        if arg > 0:
+            for i in range(arg):
+                setattr(self, newOrder[i], args[i])
+        elif kwarg > 0:
+            for j, k in kwargs.items():
+                if j in newOrder:
+                    setattr(self, j, k)
+
+    def to_dictionary(self):
+        """
+        This method is used to add to dictionary
+        """
+        return {'x': self.x, 'y': self.y,
+                'id': self.id, 'height': self.height, 'width': self.width}
