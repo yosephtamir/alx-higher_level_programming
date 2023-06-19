@@ -90,6 +90,9 @@ class Rectangle(Base):
         self.__y = value
 
     def checker(self, value, place):
+        """
+        This is used to check all variables
+        """
         if not isinstance(value, int):
             raise TypeError(f"{place} must be an integer")
         if value <= 0:
