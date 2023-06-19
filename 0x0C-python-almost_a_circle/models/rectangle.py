@@ -15,6 +15,15 @@ class Rectangle(Base):
         This is an instantaniation point
         """
         super().__init__(id)
+        """
+        These four function is used to check whether it is allowable value
+        """
+
+        self.checker(width, 'width')
+        self.checker(height, 'height')
+        self.checker(x, 'x')
+        self.checker(y, 'y')
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -32,6 +41,7 @@ class Rectangle(Base):
         """
         Used to set the value of width
         """
+        self.checker(value, 'width')
         self.__width = value
 
     @property
@@ -46,6 +56,7 @@ class Rectangle(Base):
         """
         Used to set the value of height
         """
+        self.checker(value, 'height')
         self.__height = value
 
     @property
@@ -60,6 +71,7 @@ class Rectangle(Base):
         """
         Used to set the value of x
         """
+        self.checker(value, 'x')
         self.x = value
 
     @property
@@ -74,4 +86,15 @@ class Rectangle(Base):
         """
         Used to set the value of y
         """
+        self.checker(value, 'y')
         self.__y = value
+
+    def checker(self, value, place):
+        if not isinstance(value, int):
+            raise TypeError(f"{place} must be an integer")
+        if value <= 0:
+            if place in ('width', 'height'):
+                raise ValueError(f"{place} must be > 0")
+        if value < 0:
+            if place in ('x', 'y'):
+                raise ValueError(f"{place} must be >= 0")
