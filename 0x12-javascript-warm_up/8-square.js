@@ -6,7 +6,7 @@ if (arg) {
   let inner = '';
   for (let count = 0; count < arg; count++) {
     for (let count2 = 0; count2 < arg; count2++) {
-      inner = inner + 'x';
+      inner = inner + 'X';
     }
     if (count < arg - 1) {
       inner = inner + '\n';
