@@ -1,22 +1,26 @@
 #!/usr/bin/python3
-"""
-a script that adds all arguments to a Python list,
-and then save them to a file
-"""
-import json
+'''This is to add arguments to a list'''
 from sys import argv
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
 
-saveJson = __import__('5-save_to_json_file').save_to_json_file
-loadJson = __import__('6-load_from_json_file').load_from_json_file
+def argHandler():
+    ''' THE HANDLER'''
 
-filename = 'add_item.json'
+    innerlist = []
+    filename = 'add_item.json'
 
-try:
-    thisFile = loadJson(filename)
-except (FileNotFoundError, ValueError):
-    thisFile = []
+    try:
+        other = load_from_json_file(filename)
+        innerlist = other
+    except Exception:
+        innerlist = []
 
-for i in range(1, len(argv)):
-    thisFile.append(argv[i])
-saveJson(thisFile, filename)
+    for arg in range(1, len(argv)):
+        innerlist.append(argv[arg])
+    save_to_json_file(innerlist, filename)
+
+
+if __name__ == "__main__":
+    argHandler()
