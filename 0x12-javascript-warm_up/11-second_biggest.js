@@ -1,21 +1,14 @@
 #!/usr/bin/node
 
-const arg = process.argv;
-const length = arg.length;
-let spaceh;
-let count = 2;
-let spacei;
-if (length < 4) {
-  console.log(0);
-} else if (length > 2) {
-  spaceh = arg[2];
-  spacei = arg[2];
-  while (count < length) {
-    if (spaceh < arg[count]) {
-      spacei = spaceh;
-      spaceh = arg[count];
-    }
-    count = count + 1;
+const arg = process.argv.length;
+
+if (arg > 3) {
+  const innerarg = Number(process.argv.splice(2, process.argv.length - 1).sort().reverse()[1]);
+  if (innerarg) {
+    console.log(innerarg);
+  } else {
+    console.log(innerarg);
   }
-  console.log(spacei);
+} else {
+  console.log(0);
 }
