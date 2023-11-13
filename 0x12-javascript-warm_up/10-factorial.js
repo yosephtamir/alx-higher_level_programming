@@ -3,13 +3,11 @@
 const arg = process.argv;
 
 function factorial (a) {
-  let max = a;
-  let fact = 1;
-  while (max > 0) {
-    fact = fact * max;
-    max = max - 1;
+  if (a > 1) {
+    return a * factorial(a - 1);
+  } else {
+    return 1;
   }
-  return fact;
 }
 
 if (Math.floor(arg[2])) {
