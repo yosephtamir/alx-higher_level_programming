@@ -12,4 +12,7 @@ if __name__ == '__main__':
     session = Session()
 
     instance = session.query(State).first()
-    print('{}: {}'.format(instance.id, instance.name))
+    if instance is None:
+        print("Nothing")
+    else:
+        print('{}: {}'.format(instance.id, instance.name))
