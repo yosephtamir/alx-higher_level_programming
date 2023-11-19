@@ -2,8 +2,8 @@
 """This acts as a base class for state"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+from sqlalchemy.orm import declarative_base
 from relationship_city import Base, City
-
 
 
 class State(Base):
