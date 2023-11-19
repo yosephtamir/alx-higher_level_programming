@@ -10,13 +10,10 @@ if __name__ == "__main__":
     """This script runs"""
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
-                           (argv[1], argv[2], argv[3]))
+                           (argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    result = session.query(State)
-
-    for row in result:
-        if 'a' in row.name:
-            session.delete(row)
+    session.query(State).filter(State.name.like('%a%')).delete()
     session.commit()
