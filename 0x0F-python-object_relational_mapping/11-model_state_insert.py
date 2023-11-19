@@ -7,7 +7,7 @@ from model_state import State, Base
 
 
 if __name__ == "__main__":
-    """Entery point"""
+    """Entery point n"""
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
                            (argv[1], argv[2], argv[3]))
 
