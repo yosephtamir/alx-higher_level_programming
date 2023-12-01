@@ -11,4 +11,4 @@ if __name__ == "__main__":
     """This script do not run if imported"""
     the_page = requests.get("{}".format(argv[1]))
 
-    print(the_page.headers['X-Request-Id'])
+    print(the_page.headers.get('X-Request-Id'))
